@@ -21,13 +21,4 @@ export class NatsService {
     console.log(new Date().getTime());
     await this.natsClient.emit('test', 'data');
   }
-
-  @MessagePattern('*', Transport.NATS)
-  async message(@Payload() data: string, @Ctx() context: NatsContext) {
-    console.log(data);
-  }
-  @EventPattern('*', Transport.NATS)
-  async event(@Payload() data: string, @Ctx() context: NatsContext) {
-    console.log(data);
-  }
 }

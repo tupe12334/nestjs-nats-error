@@ -1,19 +1,11 @@
-import { ConfigService } from "@nestjs/config";
-import { ClientProvider, Transport } from "@nestjs/microservices";
+import { ClientProvider, Transport } from '@nestjs/microservices';
 
-export const natsClientModuleFactory = (
-  configService: ConfigService
-): ClientProvider => {
-  const natsServersString = configService.get<string>("NASTS_SERVERS");
-  if (!natsServersString) {
-    throw new Error("NASTS_SERVERS environment variable must be defined");
-  }
-
+export const natsClientModuleFactory = (): ClientProvider => {
   return {
     transport: Transport.NATS,
     options: {
-      servers: [...natsServersString.split(",")],
-      name: "Brodcaster",
+      servers: 'localhost:4222',
+      name: 'Consumer',
     },
   };
 };

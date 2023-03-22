@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Controller } from '@nestjs/common';
 import {
   Ctx,
   EventPattern,
@@ -8,8 +8,8 @@ import {
   Transport,
 } from '@nestjs/microservices';
 
-@Injectable()
-export class NatsService {
+@Controller('nats')
+export class NatsController {
   @MessagePattern('*', Transport.NATS)
   async message(@Payload() data: string, @Ctx() context: NatsContext) {
     console.log(data);
