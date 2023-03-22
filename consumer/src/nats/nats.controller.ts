@@ -10,12 +10,21 @@ import {
 
 @Controller('nats')
 export class NatsController {
-  @MessagePattern('*', Transport.NATS)
+  @MessagePattern('test', Transport.NATS)
   async message(@Payload() data: string, @Ctx() context: NatsContext) {
     console.log(data);
   }
-  @EventPattern('*', Transport.NATS)
+  @EventPattern('test', Transport.NATS)
   async event(@Payload() data: string, @Ctx() context: NatsContext) {
+    console.log(data);
+  }
+
+  @MessagePattern('test', Transport.NATS)
+  async messageEmpty(data: any) {
+    console.log(data);
+  }
+  @EventPattern('test', Transport.NATS)
+  async eventEmpty(data: any) {
     console.log(data);
   }
 }
