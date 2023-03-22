@@ -10,8 +10,8 @@ export const natsClientModuleFactory = (): ClientProvider => {
   return {
     transport: Transport.NATS,
     options: {
-      servers: [...natsServersString.split(',')],
-      name: 'Brodcaster',
+      servers: natsServersString,
+      name: 'Producer',
     },
   };
 };
