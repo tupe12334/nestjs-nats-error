@@ -21,9 +21,11 @@
   },
   "dependencies": {
     "@nestjs/common": "^9.0.0",
+    "@nestjs/config": "^2.3.1",
     "@nestjs/core": "^9.0.0",
     "@nestjs/microservices": "^9.3.12",
     "@nestjs/platform-express": "^9.0.0",
+    "@nestjs/schedule": "^2.2.0",
     "nats": "^2.13.1",
     "reflect-metadata": "^0.1.13",
     "rxjs": "^7.2.0"
